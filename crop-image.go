@@ -8,7 +8,7 @@ import (
 	"os"
 )
 
-func checkByColor(c color.Color) bool {
+func isBlack(c color.Color) bool {
 	r, g, b, a := c.RGBA()
 	if a == 0 {
 		return false
@@ -50,7 +50,7 @@ func main() {
 		for x := bounds.Min.X; x < bounds.Max.X; x++ {
 			crop := img.At(x, y)
 
-			if checkByColor(crop) {
+			if isBlack(crop) {
 				if x < minX {
 					minX = x
 				}
